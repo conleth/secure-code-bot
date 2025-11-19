@@ -27,7 +27,7 @@ secureCodeBoxWebhookRouter.post("/webhooks/securecodebox", async (req, res) => {
       tip,
     });
 
-    await teamsClient.postCard(card);
+    await teamsClient.postCard(card as any);
 
     res.json({ ok: true });
   } catch (e) {
