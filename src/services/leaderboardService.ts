@@ -1,4 +1,5 @@
 import axios from "axios";
+import { promises as fs } from "node:fs";
 import path from "node:path";
 import { parse as parseCsv } from "csv-parse/sync";
 import * as XLSX from "xlsx";
@@ -85,7 +86,18 @@ const detectFormat = (extension: string, contentType?: string): LeaderboardForma
   throw new Error("Unsupported leaderboard file format");
 };
 
+const TEST_LEADERBOARD_PATH = path.join(process.cwd(), "data", "test", "leaderboard.csv");
+
 const downloadLeaderboardFile = async (): Promise<{ buffer: Buffer; contentType?: string; extension: string }> => {
+  if (!config.leaderboardFileUrl) {
+    const buffer = await fs.readFile(TEST_LEADERBOARD_PATH);
+    return {
+      buffer,
+      contentType: "text/csv",
+      extension: ".csv",
+    };
+  }
+
   const response = await axios.get(config.leaderboardFileUrl, {
     responseType: "arraybuffer",
     // TODO: Inject SharePoint/Graph authentication headers when details are available.

@@ -1,0 +1,20 @@
+[
+  {
+    "teamName": "Falcon Apps",
+    "resolvedCountLast7Days": 9,
+    "criticalOpen": 1,
+    "highOpen": 4
+  },
+  {
+    "teamName": "Atlas Payments",
+    "resolvedCountLast7Days": 6,
+    "criticalOpen": 0,
+    "highOpen": 3
+  },
+  {
+    "teamName": "Mobile Core",
+    "resolvedCountLast7Days": 4,
+    "criticalOpen": 2,
+    "highOpen": 5
+  }
+]

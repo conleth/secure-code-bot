@@ -13,13 +13,13 @@ secure-code-bot is a small Node.js + TypeScript service that listens for secureC
    cp .env.example .env
    ```
 
-### Required environment variables
+### Environment variables
 ```
 PORT=3004
 TEAMS_WEBHOOK_URL=<incoming Teams webhook URL>
-CYCOD_API_BASE_URL=<https://api.cycode.com placeholder>
-CYCOD_API_TOKEN=<cycode token>
-SHAREPOINT_LEADERBOARD_FILE_URL=<public or authenticated CSV/XLSX URL>
+CYCOD_API_BASE_URL=<https://api.cycode.com placeholder | leave blank for local test data>
+CYCOD_API_TOKEN=<cycode token | leave blank for local test data>
+SHAREPOINT_LEADERBOARD_FILE_URL=<public or authenticated CSV/XLSX URL | leave blank for local test data>
 NODE_ENV=development
 ```
 
@@ -62,6 +62,11 @@ curl -X POST http://localhost:3004/webhooks/securecodebox \
 
 ## Cycode integration placeholder
 - `cycodeClient` contains a TODO stub describing the expected payload. Wire it up once Cycode ASPM API details are available.
+
+## Local test data
+- If `CYCOD_API_BASE_URL` or `CYCOD_API_TOKEN` is empty, `cycodeClient` automatically loads `data/test/cycodeTeamStats.json`.
+- If `SHAREPOINT_LEADERBOARD_FILE_URL` is empty, the leaderboard service reads `data/test/leaderboard.csv`.
+- These fixtures make it easy to POST the webhook payload locally and see a full Adaptive Card without hitting external services.
 
 ## Example Adaptive Card contents
 The generated card includes:
