@@ -1,0 +1,8 @@
+{
+  "label": "Q4 Security Goals",
+  "items": [
+    { "name": "ASVS adoption", "current": 51, "target": 80 },
+    { "name": "SAST PR integration", "current": 76, "target": 100 },
+    { "name": "Critical backlog reduction (%)", "current": 25, "target": 40 }
+  ]
+}

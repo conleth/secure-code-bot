@@ -1,0 +1,20 @@
+[
+  {
+    "id": "orm_sql_injection",
+    "text": "Using parameterized queries (or ORMs that default to them) is an easy way to stop SQL injection before it starts.",
+    "category": "injection",
+    "scanners": ["zap", "general"]
+  },
+  {
+    "id": "sast_triage",
+    "text": "Spend 5 minutes adding reproduction notes when you close a SAST finding. Future you (and the reviewer) will thank you.",
+    "category": "sast",
+    "scanners": ["veracode_sast", "general"]
+  },
+  {
+    "id": "secret_scanning",
+    "text": "Rotate credentials that show up in any scanner report even if they were dummy keys. It keeps test accounts from becoming production backdoors.",
+    "category": "secrets",
+    "scanners": ["gitleaks", "general"]
+  }
+]
